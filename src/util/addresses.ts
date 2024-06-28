@@ -135,7 +135,8 @@ export const NONFUNGIBLE_POSITION_MANAGER_ADDRESS =
   CHAIN_TO_ADDRESSES_MAP[ChainId.MAINNET].nonfungiblePositionManagerAddress;
 export const V3_MIGRATOR_ADDRESS =
   CHAIN_TO_ADDRESSES_MAP[ChainId.MAINNET].v3MigratorAddress;
-export const MULTICALL2_ADDRESS = '0xF9911D71113Afb93444f5B144fe527A1d90087DF';
+// export const MULTICALL2_ADDRESS = '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696';
+export const MULTICALL2_ADDRESS = '0xF82D64357D9120a760e1E4C75f646C0618eFc2F3';
 
 export type AddressMap = { [chainId: number]: string | undefined };
 
