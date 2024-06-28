@@ -283,6 +283,12 @@ export class V2HeuristicGasModelFactory extends IV2GasModelFactory {
           pool.token1.equals(WRAPPED_NATIVE_CURRENCY[chainId]!))
     );
 
+    // console.log(poolProvider, 'poolProvider');
+    // console.log(usdTokens, 'usdToken');
+    // console.log(poolAccessor.getAllPools(), 'poolAccessor');
+    // console.log(pools, 'pools');
+    // console.log(usdPools, 'usdPools');
+    // console.log(poolsRaw, 'poolsRaw');
     if (pools.length == 0) {
       log.error(
         { pools },

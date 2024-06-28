@@ -126,6 +126,7 @@ export class Quote extends BaseCommand {
       : (await tokenProvider.getTokens([tokenInStr])).getTokenByAddress(
           tokenInStr
         )!;
+    console.log(tokenIn, 'token in', tokenInStr);
 
     const tokenOut: Currency = NATIVE_NAMES_BY_ID[chainId]!.includes(
       tokenOutStr
