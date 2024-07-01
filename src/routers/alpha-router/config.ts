@@ -14,6 +14,7 @@ export const DEFAULT_ROUTING_CONFIG_BY_CHAIN = (
     case ChainId.BASE_GOERLI:
     case ChainId.BASE_SEPOLIA:
     case ChainId.BLAST:
+    case ChainId.TAIKO:
       return {
         v2PoolSelection: {
           topN: 3,

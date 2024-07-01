@@ -65,6 +65,7 @@ import {
   WXDAI_GNOSIS,
 } from '../token-provider';
 
+import { TAIKO_TAIKO, USDC_TAIKO } from './../token-provider';
 import { IV3PoolProvider } from './pool-provider';
 import { IV3SubgraphProvider, V3SubgraphPool } from './subgraph-provider';
 
@@ -170,6 +171,11 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.BASE_SEPOLIA]: [
     WRAPPED_NATIVE_CURRENCY[ChainId.BASE_SEPOLIA],
     USDC_BASE_SEPOLIA,
+  ],
+  [ChainId.TAIKO]: [
+    WRAPPED_NATIVE_CURRENCY[ChainId.TAIKO],
+    USDC_TAIKO,
+    TAIKO_TAIKO,
   ],
 };
 

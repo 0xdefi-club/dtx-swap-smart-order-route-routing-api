@@ -1,3 +1,7 @@
+import {
+  TAIKO_TAIKO,
+  USDC_TAIKO,
+} from './../../../../src/providers/token-provider';
 /**
  * @jest-environment hardhat
  */
@@ -134,6 +138,7 @@ const GAS_ESTIMATE_DEVIATION_PERCENT: { [chainId in ChainId]: number } = {
   [ChainId.ROOTSTOCK]: 30,
   [ChainId.BLAST]: 34,
   [ChainId.BASE_SEPOLIA]: 30,
+  [ChainId.TAIKO]: 40,
 };
 
 const V2_SUPPORTED_PAIRS = [
@@ -144,6 +149,7 @@ const V2_SUPPORTED_PAIRS = [
   [WRAPPED_NATIVE_CURRENCY[ChainId.BNB], USDC_BNB],
   [WRAPPED_NATIVE_CURRENCY[ChainId.AVALANCHE], USDC_NATIVE_AVAX],
   [WRAPPED_NATIVE_CURRENCY[ChainId.BASE_SEPOLIA], USDC_BASE_SEPOLIA],
+  [WRAPPED_NATIVE_CURRENCY[ChainId.TAIKO], USDC_TAIKO, TAIKO_TAIKO],
 ];
 
 const checkQuoteToken = (
@@ -3510,6 +3516,7 @@ describe('quote for other networks', () => {
     [ChainId.ROOTSTOCK]: () => USDC_ON(ChainId.ROOTSTOCK),
     [ChainId.BLAST]: () => USDB_BLAST,
     [ChainId.BASE_SEPOLIA]: () => USDC_BASE_SEPOLIA,
+    [ChainId.TAIKO]: () => TAIKO_TAIKO,
   };
   const TEST_ERC20_2: { [chainId in ChainId]: () => Token } = {
     [ChainId.MAINNET]: () => DAI_ON(1),
@@ -3536,6 +3543,7 @@ describe('quote for other networks', () => {
     [ChainId.ROOTSTOCK]: () => WNATIVE_ON(ChainId.ROOTSTOCK),
     [ChainId.BLAST]: () => WNATIVE_ON(ChainId.BLAST),
     [ChainId.BASE_SEPOLIA]: () => WNATIVE_ON(ChainId.BASE_SEPOLIA),
+    [ChainId.TAIKO]: () => WNATIVE_ON(ChainId.TAIKO),
   };
 
   // TODO: Find valid pools/tokens on optimistic kovan and polygon mumbai. We skip those tests for now.
@@ -3726,10 +3734,6 @@ describe('quote for other networks', () => {
             }
 
             if (chain == ChainId.BLAST) {
-              // Blast doesn't have DAI or USDC yet
-              return;
-            }
-            if (chain == ChainId.BASE_SEPOLIA) {
               // Blast doesn't have DAI or USDC yet
               return;
             }

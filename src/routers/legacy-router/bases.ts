@@ -22,6 +22,8 @@ import {
 } from '../../providers/token-provider';
 import { WRAPPED_NATIVE_CURRENCY } from '../../util/chains';
 
+import { TAIKO_TAIKO, USDC_TAIKO } from './../../providers/token-provider';
+
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[];
 };
@@ -82,6 +84,11 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
     [ChainId.BASE_SEPOLIA]: [
       WRAPPED_NATIVE_CURRENCY[ChainId.BASE_SEPOLIA],
       USDC_BASE_SEPOLIA,
+    ],
+    [ChainId.TAIKO]: [
+      WRAPPED_NATIVE_CURRENCY[ChainId.TAIKO],
+      USDC_TAIKO,
+      TAIKO_TAIKO,
     ],
   };
 };

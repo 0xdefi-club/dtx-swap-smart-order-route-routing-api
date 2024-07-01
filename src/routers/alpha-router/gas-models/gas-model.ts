@@ -70,6 +70,8 @@ import {
   V3RouteWithValidQuote,
 } from '../entities/route-with-valid-quote';
 
+import { TAIKO_TAIKO, USDC_TAIKO } from './../../../providers/token-provider';
+
 // When adding new usd gas tokens, ensure the tokens are ordered
 // from tokens with highest decimals to lowest decimals. For example,
 // DAI_AVAX has 18 decimals and comes before USDC_AVAX which has 6 decimals.
@@ -117,6 +119,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.BASE]: [USDC_BASE, USDC_NATIVE_BASE],
   [ChainId.BLAST]: [USDB_BLAST],
   [ChainId.BASE_SEPOLIA]: [USDC_BASE_SEPOLIA],
+  [ChainId.TAIKO]: [USDC_TAIKO, TAIKO_TAIKO],
 };
 
 export type L1ToL2GasCosts = {

@@ -71,6 +71,8 @@ const SUBGRAPH_URL_BY_CHAIN: { [chainId in ChainId]?: string } = {
     'https://gateway-arbitrum.network.thegraph.com/api/0ae45f0bf40ae2e73119b44ccd755967/subgraphs/id/2LHovKznvo8YmKC9ZprPjsYAZDCc4K5q4AYz8s3cnQn1',
   [ChainId.BASE_SEPOLIA]:
     'https://api.studio.thegraph.com/query/64677/0xswap-v3-basetest/v2',
+  [ChainId.TAIKO]:
+    'https://taiko-swap-subgraph.dtx.trade/subgraphs/name/DTXswap-v3/167000-subgraph',
 };
 
 const PAGE_SIZE = 1000; // 1k is max possible query size from subgraph.

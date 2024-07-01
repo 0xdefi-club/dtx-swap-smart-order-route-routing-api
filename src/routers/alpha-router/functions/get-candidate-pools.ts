@@ -31,6 +31,7 @@ import {
   DAI_SEPOLIA,
   FEI_MAINNET,
   ITokenProvider,
+  TAIKO_TAIKO,
   USDB_BLAST,
   USDC_ARBITRUM,
   USDC_ARBITRUM_GOERLI,
@@ -45,6 +46,7 @@ import {
   USDC_OPTIMISM_GOERLI,
   USDC_POLYGON,
   USDC_SEPOLIA,
+  USDC_TAIKO,
   USDT_ARBITRUM,
   USDT_BNB,
   USDT_MAINNET,
@@ -192,6 +194,11 @@ const baseTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.BASE_SEPOLIA]: [
     WRAPPED_NATIVE_CURRENCY[ChainId.BASE_SEPOLIA]!,
     USDC_BASE_SEPOLIA,
+  ],
+  [ChainId.TAIKO]: [
+    WRAPPED_NATIVE_CURRENCY[ChainId.TAIKO]!,
+    USDC_TAIKO,
+    TAIKO_TAIKO,
   ],
 };
 

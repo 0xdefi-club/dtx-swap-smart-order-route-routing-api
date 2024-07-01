@@ -42,6 +42,7 @@ export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
   // TODO: Gnosis + Moonbeam contracts to be deployed
   [ChainId.BASE_SEPOLIA]:
     CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_SEPOLIA].v3CoreFactoryAddress,
+  [ChainId.TAIKO]: CHAIN_TO_ADDRESSES_MAP[ChainId.TAIKO].v3CoreFactoryAddress,
 };
 
 export const QUOTER_V2_ADDRESSES: AddressMap = {
@@ -67,6 +68,7 @@ export const QUOTER_V2_ADDRESSES: AddressMap = {
   // TODO: Gnosis + Moonbeam contracts to be deployed
   [ChainId.BASE_SEPOLIA]:
     CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_SEPOLIA].quoterAddress,
+  [ChainId.TAIKO]: CHAIN_TO_ADDRESSES_MAP[ChainId.TAIKO].quoterAddress,
 };
 
 export const NEW_QUOTER_V2_ADDRESSES: AddressMap = {
@@ -82,6 +84,7 @@ export const NEW_QUOTER_V2_ADDRESSES: AddressMap = {
   [ChainId.BASE]: '0x222cA98F00eD15B1faE10B61c277703a194cf5d2',
   [ChainId.BLAST]: '0x9D0F15f2cf58655fDDcD1EE6129C547fDaeD01b1',
   [ChainId.BASE_SEPOLIA]: '0xd18105225f57A4Dd628F4762CD1bf7EdB1bA6aC9',
+  [ChainId.TAIKO]: '0xEA7F4A0f3F942C056d7e6E19243a20bA7Eff8d3a',
 };
 
 export const MIXED_ROUTE_QUOTER_V1_ADDRESSES: AddressMap = {
@@ -91,6 +94,7 @@ export const MIXED_ROUTE_QUOTER_V1_ADDRESSES: AddressMap = {
     CHAIN_TO_ADDRESSES_MAP[ChainId.GOERLI].v1MixedRouteQuoterAddress,
   [ChainId.BASE_SEPOLIA]:
     CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_SEPOLIA].v1MixedRouteQuoterAddress,
+  [ChainId.TAIKO]: CHAIN_TO_ADDRESSES_MAP[ChainId.TAIKO].multicallAddress,
 };
 
 export const UNISWAP_MULTICALL_ADDRESSES: AddressMap = {
@@ -116,6 +120,7 @@ export const UNISWAP_MULTICALL_ADDRESSES: AddressMap = {
   [ChainId.BLAST]: CHAIN_TO_ADDRESSES_MAP[ChainId.BLAST].multicallAddress,
   [ChainId.BASE_SEPOLIA]:
     CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_SEPOLIA].multicallAddress,
+  [ChainId.TAIKO]: CHAIN_TO_ADDRESSES_MAP[ChainId.TAIKO].multicallAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
@@ -258,6 +263,13 @@ export const WETH9: {
   [ChainId.BASE_SEPOLIA]: new Token(
     ChainId.BASE_SEPOLIA,
     '0x6267947C818ff3900F620FC97d590702afB69147',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [ChainId.TAIKO]: new Token(
+    ChainId.TAIKO,
+    '0xA51894664A773981C6C112C43ce576f315d5b1B6',
     18,
     'WETH',
     'Wrapped Ether'

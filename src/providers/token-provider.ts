@@ -606,6 +606,21 @@ export const USDC_BASE_SEPOLIA = new Token(
   'USD//C'
 );
 
+export const USDC_TAIKO = new Token(
+  ChainId.TAIKO,
+  '0x07d83526730c7438048D55A4fc0b850e2aaB6f0b',
+  6,
+  'USDC',
+  'USD//C'
+);
+export const TAIKO_TAIKO = new Token(
+  ChainId.TAIKO,
+  '0xA9d23408b9bA935c230493c40C73824Df71A0975',
+  18,
+  'TAIKO',
+  'Taiko'
+);
+
 export const WXDAI_GNOSIS = new Token(
   ChainId.GNOSIS,
   '0xe91d153e0b41518a2ce8dd3d7944fa863463a97d',
@@ -933,6 +948,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_BASE_GOERLI;
     case ChainId.BASE_SEPOLIA:
       return USDC_BASE_SEPOLIA;
+    case ChainId.TAIKO:
+      return USDC_TAIKO;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

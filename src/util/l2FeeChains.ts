@@ -9,4 +9,5 @@ export const opStackChains = [
   ChainId.BLAST,
   // change
   ChainId.BASE_SEPOLIA,
+  ChainId.TAIKO,
 ];

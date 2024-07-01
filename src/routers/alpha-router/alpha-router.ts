@@ -553,6 +553,7 @@ export class AlphaRouter
         case ChainId.BLAST:
         case ChainId.BASE_GOERLI:
         case ChainId.BASE_SEPOLIA:
+        case ChainId.TAIKO:
           this.onChainQuoteProvider = new OnChainQuoteProvider(
             chainId,
             provider,
