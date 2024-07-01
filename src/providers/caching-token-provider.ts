@@ -43,6 +43,7 @@ import {
   USDC_OPTIMISM_SEPOLIA,
   USDC_POLYGON,
   USDC_SEPOLIA,
+  USDC_TAIKO,
   USDT_ARBITRUM,
   USDT_BNB,
   USDT_MAINNET,
@@ -169,6 +170,10 @@ export const CACHE_SEED_TOKENS: {
   [ChainId.BASE_SEPOLIA]: {
     USDC: USDC_BASE_SEPOLIA,
     WETH: WRAPPED_NATIVE_CURRENCY[ChainId.BASE_SEPOLIA],
+  },
+  [ChainId.TAIKO]: {
+    USDC: USDC_TAIKO,
+    WETH: WRAPPED_NATIVE_CURRENCY[ChainId.TAIKO],
   },
   // Currently we do not have providers for Moonbeam mainnet or Gnosis testnet
 };

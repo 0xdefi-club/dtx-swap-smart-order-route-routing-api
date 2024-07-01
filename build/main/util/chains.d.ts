@@ -25,7 +25,8 @@ export declare enum ChainName {
     BASE = "base-mainnet",
     BASE_GOERLI = "base-goerli",
     BLAST = "blast-mainnet",
-    BASE_SEPOLIA = "base-sepolia"
+    BASE_SEPOLIA = "base-sepolia",
+    TAIKO = "takio"
 }
 export declare enum NativeCurrencyName {
     ETHER = "ETH",

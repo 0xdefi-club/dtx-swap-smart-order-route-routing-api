@@ -1,680 +1,546 @@
-import { ChainId, Ether, NativeCurrency, Token } from '@uniswap/sdk-core';
+import { ChainId, Ether, NativeCurrency, Token, } from '@uniswap/sdk-core';
 // WIP: Gnosis, Moonbeam
 export const SUPPORTED_CHAINS = [
-  ChainId.MAINNET,
-  ChainId.OPTIMISM,
-  ChainId.OPTIMISM_GOERLI,
-  ChainId.OPTIMISM_SEPOLIA,
-  ChainId.ARBITRUM_ONE,
-  ChainId.ARBITRUM_GOERLI,
-  ChainId.ARBITRUM_SEPOLIA,
-  ChainId.POLYGON,
-  ChainId.POLYGON_MUMBAI,
-  ChainId.SEPOLIA,
-  ChainId.CELO_ALFAJORES,
-  ChainId.CELO,
-  ChainId.BNB,
-  ChainId.AVALANCHE,
-  ChainId.BASE,
-  ChainId.BLAST,
-  // Gnosis and Moonbeam don't yet have contracts deployed yet
-  ChainId.BASE_SEPOLIA,
-  ChainId.TAIKO,
+    ChainId.MAINNET,
+    ChainId.OPTIMISM,
+    ChainId.OPTIMISM_GOERLI,
+    ChainId.OPTIMISM_SEPOLIA,
+    ChainId.ARBITRUM_ONE,
+    ChainId.ARBITRUM_GOERLI,
+    ChainId.ARBITRUM_SEPOLIA,
+    ChainId.POLYGON,
+    ChainId.POLYGON_MUMBAI,
+    ChainId.SEPOLIA,
+    ChainId.CELO_ALFAJORES,
+    ChainId.CELO,
+    ChainId.BNB,
+    ChainId.AVALANCHE,
+    ChainId.BASE,
+    ChainId.BLAST,
+    // Gnosis and Moonbeam don't yet have contracts deployed yet
+    ChainId.BASE_SEPOLIA,
+    ChainId.TAIKO,
 ];
 export const V2_SUPPORTED = [
-  ChainId.MAINNET,
-  ChainId.SEPOLIA,
-  ChainId.ARBITRUM_ONE,
-  ChainId.OPTIMISM,
-  ChainId.POLYGON,
-  ChainId.BASE,
-  ChainId.BNB,
-  ChainId.AVALANCHE,
-  //
-  ChainId.BASE_SEPOLIA,
-  ChainId.TAIKO,
+    ChainId.MAINNET,
+    ChainId.SEPOLIA,
+    ChainId.ARBITRUM_ONE,
+    ChainId.OPTIMISM,
+    ChainId.POLYGON,
+    ChainId.BASE,
+    ChainId.BNB,
+    ChainId.AVALANCHE,
+    //
+    ChainId.BASE_SEPOLIA,
+    ChainId.TAIKO,
 ];
 export const HAS_L1_FEE = [
-  ChainId.OPTIMISM,
-  ChainId.OPTIMISM_GOERLI,
-  ChainId.OPTIMISM_SEPOLIA,
-  ChainId.ARBITRUM_ONE,
-  ChainId.ARBITRUM_GOERLI,
-  ChainId.ARBITRUM_SEPOLIA,
-  ChainId.BASE,
-  ChainId.BASE_GOERLI,
-  ChainId.BLAST,
-  //
-  ChainId.BASE_SEPOLIA,
-  ChainId.TAIKO,
+    ChainId.OPTIMISM,
+    ChainId.OPTIMISM_GOERLI,
+    ChainId.OPTIMISM_SEPOLIA,
+    ChainId.ARBITRUM_ONE,
+    ChainId.ARBITRUM_GOERLI,
+    ChainId.ARBITRUM_SEPOLIA,
+    ChainId.BASE,
+    ChainId.BASE_GOERLI,
+    ChainId.BLAST,
+    //
+    ChainId.BASE_SEPOLIA,
+    ChainId.TAIKO,
 ];
 export const NETWORKS_WITH_SAME_UNISWAP_ADDRESSES = [
-  ChainId.MAINNET,
-  ChainId.GOERLI,
-  ChainId.OPTIMISM,
-  ChainId.ARBITRUM_ONE,
-  ChainId.POLYGON,
-  ChainId.POLYGON_MUMBAI,
+    ChainId.MAINNET,
+    ChainId.GOERLI,
+    ChainId.OPTIMISM,
+    ChainId.ARBITRUM_ONE,
+    ChainId.POLYGON,
+    ChainId.POLYGON_MUMBAI,
 ];
 export const ID_TO_CHAIN_ID = (id) => {
-  switch (id) {
-    case 1:
-      return ChainId.MAINNET;
-    case 5:
-      return ChainId.GOERLI;
-    case 11155111:
-      return ChainId.SEPOLIA;
-    case 56:
-      return ChainId.BNB;
-    case 10:
-      return ChainId.OPTIMISM;
-    case 420:
-      return ChainId.OPTIMISM_GOERLI;
-    case 11155420:
-      return ChainId.OPTIMISM_SEPOLIA;
-    case 42161:
-      return ChainId.ARBITRUM_ONE;
-    case 421613:
-      return ChainId.ARBITRUM_GOERLI;
-    case 421614:
-      return ChainId.ARBITRUM_SEPOLIA;
-    case 137:
-      return ChainId.POLYGON;
-    case 80001:
-      return ChainId.POLYGON_MUMBAI;
-    case 42220:
-      return ChainId.CELO;
-    case 44787:
-      return ChainId.CELO_ALFAJORES;
-    case 100:
-      return ChainId.GNOSIS;
-    case 1284:
-      return ChainId.MOONBEAM;
-    case 43114:
-      return ChainId.AVALANCHE;
-    case 8453:
-      return ChainId.BASE;
-    case 84531:
-      return ChainId.BASE_GOERLI;
-    case 81457:
-      return ChainId.BLAST;
-    case 84532:
-      return ChainId.BASE_SEPOLIA;
-    case 167000:
-      return ChainId.TAIKO;
-    default:
-      throw new Error(`Unknown chain id: ${id}`);
-  }
+    switch (id) {
+        case 1:
+            return ChainId.MAINNET;
+        case 5:
+            return ChainId.GOERLI;
+        case 11155111:
+            return ChainId.SEPOLIA;
+        case 56:
+            return ChainId.BNB;
+        case 10:
+            return ChainId.OPTIMISM;
+        case 420:
+            return ChainId.OPTIMISM_GOERLI;
+        case 11155420:
+            return ChainId.OPTIMISM_SEPOLIA;
+        case 42161:
+            return ChainId.ARBITRUM_ONE;
+        case 421613:
+            return ChainId.ARBITRUM_GOERLI;
+        case 421614:
+            return ChainId.ARBITRUM_SEPOLIA;
+        case 137:
+            return ChainId.POLYGON;
+        case 80001:
+            return ChainId.POLYGON_MUMBAI;
+        case 42220:
+            return ChainId.CELO;
+        case 44787:
+            return ChainId.CELO_ALFAJORES;
+        case 100:
+            return ChainId.GNOSIS;
+        case 1284:
+            return ChainId.MOONBEAM;
+        case 43114:
+            return ChainId.AVALANCHE;
+        case 8453:
+            return ChainId.BASE;
+        case 84531:
+            return ChainId.BASE_GOERLI;
+        case 81457:
+            return ChainId.BLAST;
+        case 84532:
+            return ChainId.BASE_SEPOLIA;
+        case 167000:
+            return ChainId.TAIKO;
+        default:
+            throw new Error(`Unknown chain id: ${id}`);
+    }
 };
 export var ChainName;
 (function (ChainName) {
-  ChainName['MAINNET'] = 'mainnet';
-  ChainName['GOERLI'] = 'goerli';
-  ChainName['SEPOLIA'] = 'sepolia';
-  ChainName['OPTIMISM'] = 'optimism-mainnet';
-  ChainName['OPTIMISM_GOERLI'] = 'optimism-goerli';
-  ChainName['OPTIMISM_SEPOLIA'] = 'optimism-sepolia';
-  ChainName['ARBITRUM_ONE'] = 'arbitrum-mainnet';
-  ChainName['ARBITRUM_GOERLI'] = 'arbitrum-goerli';
-  ChainName['ARBITRUM_SEPOLIA'] = 'arbitrum-sepolia';
-  ChainName['POLYGON'] = 'polygon-mainnet';
-  ChainName['POLYGON_MUMBAI'] = 'polygon-mumbai';
-  ChainName['CELO'] = 'celo-mainnet';
-  ChainName['CELO_ALFAJORES'] = 'celo-alfajores';
-  ChainName['GNOSIS'] = 'gnosis-mainnet';
-  ChainName['MOONBEAM'] = 'moonbeam-mainnet';
-  ChainName['BNB'] = 'bnb-mainnet';
-  ChainName['AVALANCHE'] = 'avalanche-mainnet';
-  ChainName['BASE'] = 'base-mainnet';
-  ChainName['BASE_GOERLI'] = 'base-goerli';
-  ChainName['BLAST'] = 'blast-mainnet';
-  ChainName['BASE_SEPOLIA'] = 'base-sepolia';
-  ChainName['TAIKO'] = 'Taiko';
+    ChainName["MAINNET"] = "mainnet";
+    ChainName["GOERLI"] = "goerli";
+    ChainName["SEPOLIA"] = "sepolia";
+    ChainName["OPTIMISM"] = "optimism-mainnet";
+    ChainName["OPTIMISM_GOERLI"] = "optimism-goerli";
+    ChainName["OPTIMISM_SEPOLIA"] = "optimism-sepolia";
+    ChainName["ARBITRUM_ONE"] = "arbitrum-mainnet";
+    ChainName["ARBITRUM_GOERLI"] = "arbitrum-goerli";
+    ChainName["ARBITRUM_SEPOLIA"] = "arbitrum-sepolia";
+    ChainName["POLYGON"] = "polygon-mainnet";
+    ChainName["POLYGON_MUMBAI"] = "polygon-mumbai";
+    ChainName["CELO"] = "celo-mainnet";
+    ChainName["CELO_ALFAJORES"] = "celo-alfajores";
+    ChainName["GNOSIS"] = "gnosis-mainnet";
+    ChainName["MOONBEAM"] = "moonbeam-mainnet";
+    ChainName["BNB"] = "bnb-mainnet";
+    ChainName["AVALANCHE"] = "avalanche-mainnet";
+    ChainName["BASE"] = "base-mainnet";
+    ChainName["BASE_GOERLI"] = "base-goerli";
+    ChainName["BLAST"] = "blast-mainnet";
+    ChainName["BASE_SEPOLIA"] = "base-sepolia";
+    ChainName["TAIKO"] = "takio";
 })(ChainName || (ChainName = {}));
 export var NativeCurrencyName;
 (function (NativeCurrencyName) {
-  // Strings match input for CLI
-  NativeCurrencyName['ETHER'] = 'ETH';
-  NativeCurrencyName['MATIC'] = 'MATIC';
-  NativeCurrencyName['CELO'] = 'CELO';
-  NativeCurrencyName['GNOSIS'] = 'XDAI';
-  NativeCurrencyName['MOONBEAM'] = 'GLMR';
-  NativeCurrencyName['BNB'] = 'BNB';
-  NativeCurrencyName['AVALANCHE'] = 'AVAX';
+    // Strings match input for CLI
+    NativeCurrencyName["ETHER"] = "ETH";
+    NativeCurrencyName["MATIC"] = "MATIC";
+    NativeCurrencyName["CELO"] = "CELO";
+    NativeCurrencyName["GNOSIS"] = "XDAI";
+    NativeCurrencyName["MOONBEAM"] = "GLMR";
+    NativeCurrencyName["BNB"] = "BNB";
+    NativeCurrencyName["AVALANCHE"] = "AVAX";
 })(NativeCurrencyName || (NativeCurrencyName = {}));
 export const NATIVE_NAMES_BY_ID = {
-  [ChainId.MAINNET]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.GOERLI]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.SEPOLIA]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.OPTIMISM]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.OPTIMISM_GOERLI]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.OPTIMISM_SEPOLIA]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.ARBITRUM_ONE]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.ARBITRUM_GOERLI]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.ARBITRUM_SEPOLIA]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.POLYGON]: ['MATIC', '0x0000000000000000000000000000000000001010'],
-  [ChainId.POLYGON_MUMBAI]: [
-    'MATIC',
-    '0x0000000000000000000000000000000000001010',
-  ],
-  [ChainId.CELO]: ['CELO'],
-  [ChainId.CELO_ALFAJORES]: ['CELO'],
-  [ChainId.GNOSIS]: ['XDAI'],
-  [ChainId.MOONBEAM]: ['GLMR'],
-  [ChainId.BNB]: ['BNB', 'BNB', '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'],
-  [ChainId.AVALANCHE]: [
-    'AVAX',
-    'AVALANCHE',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.BASE]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.BLAST]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.BASE_SEPOLIA]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
-  [ChainId.TAIKO]: [
-    'ETH',
-    'ETHER',
-    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
-  ],
+    [ChainId.MAINNET]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.GOERLI]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.SEPOLIA]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.OPTIMISM]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.OPTIMISM_GOERLI]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.OPTIMISM_SEPOLIA]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.ARBITRUM_ONE]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.ARBITRUM_GOERLI]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.ARBITRUM_SEPOLIA]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.POLYGON]: ['MATIC', '0x0000000000000000000000000000000000001010'],
+    [ChainId.POLYGON_MUMBAI]: [
+        'MATIC',
+        '0x0000000000000000000000000000000000001010',
+    ],
+    [ChainId.CELO]: ['CELO'],
+    [ChainId.CELO_ALFAJORES]: ['CELO'],
+    [ChainId.GNOSIS]: ['XDAI'],
+    [ChainId.MOONBEAM]: ['GLMR'],
+    [ChainId.BNB]: ['BNB', 'BNB', '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'],
+    [ChainId.AVALANCHE]: [
+        'AVAX',
+        'AVALANCHE',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.BASE]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.BLAST]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.BASE_SEPOLIA]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
+    [ChainId.TAIKO]: [
+        'ETH',
+        'ETHER',
+        '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    ],
 };
 export const NATIVE_CURRENCY = {
-  [ChainId.MAINNET]: NativeCurrencyName.ETHER,
-  [ChainId.GOERLI]: NativeCurrencyName.ETHER,
-  [ChainId.SEPOLIA]: NativeCurrencyName.ETHER,
-  [ChainId.OPTIMISM]: NativeCurrencyName.ETHER,
-  [ChainId.OPTIMISM_GOERLI]: NativeCurrencyName.ETHER,
-  [ChainId.OPTIMISM_SEPOLIA]: NativeCurrencyName.ETHER,
-  [ChainId.ARBITRUM_ONE]: NativeCurrencyName.ETHER,
-  [ChainId.ARBITRUM_GOERLI]: NativeCurrencyName.ETHER,
-  [ChainId.ARBITRUM_SEPOLIA]: NativeCurrencyName.ETHER,
-  [ChainId.POLYGON]: NativeCurrencyName.MATIC,
-  [ChainId.POLYGON_MUMBAI]: NativeCurrencyName.MATIC,
-  [ChainId.CELO]: NativeCurrencyName.CELO,
-  [ChainId.CELO_ALFAJORES]: NativeCurrencyName.CELO,
-  [ChainId.GNOSIS]: NativeCurrencyName.GNOSIS,
-  [ChainId.MOONBEAM]: NativeCurrencyName.MOONBEAM,
-  [ChainId.BNB]: NativeCurrencyName.BNB,
-  [ChainId.AVALANCHE]: NativeCurrencyName.AVALANCHE,
-  [ChainId.BASE]: NativeCurrencyName.ETHER,
-  [ChainId.BLAST]: NativeCurrencyName.ETHER,
-  [ChainId.BASE_SEPOLIA]: NativeCurrencyName.ETHER,
-  [ChainId.TAIKO]: NativeCurrencyName.ETHER,
+    [ChainId.MAINNET]: NativeCurrencyName.ETHER,
+    [ChainId.GOERLI]: NativeCurrencyName.ETHER,
+    [ChainId.SEPOLIA]: NativeCurrencyName.ETHER,
+    [ChainId.OPTIMISM]: NativeCurrencyName.ETHER,
+    [ChainId.OPTIMISM_GOERLI]: NativeCurrencyName.ETHER,
+    [ChainId.OPTIMISM_SEPOLIA]: NativeCurrencyName.ETHER,
+    [ChainId.ARBITRUM_ONE]: NativeCurrencyName.ETHER,
+    [ChainId.ARBITRUM_GOERLI]: NativeCurrencyName.ETHER,
+    [ChainId.ARBITRUM_SEPOLIA]: NativeCurrencyName.ETHER,
+    [ChainId.POLYGON]: NativeCurrencyName.MATIC,
+    [ChainId.POLYGON_MUMBAI]: NativeCurrencyName.MATIC,
+    [ChainId.CELO]: NativeCurrencyName.CELO,
+    [ChainId.CELO_ALFAJORES]: NativeCurrencyName.CELO,
+    [ChainId.GNOSIS]: NativeCurrencyName.GNOSIS,
+    [ChainId.MOONBEAM]: NativeCurrencyName.MOONBEAM,
+    [ChainId.BNB]: NativeCurrencyName.BNB,
+    [ChainId.AVALANCHE]: NativeCurrencyName.AVALANCHE,
+    [ChainId.BASE]: NativeCurrencyName.ETHER,
+    [ChainId.BLAST]: NativeCurrencyName.ETHER,
+    [ChainId.BASE_SEPOLIA]: NativeCurrencyName.ETHER,
+    [ChainId.TAIKO]: NativeCurrencyName.ETHER,
 };
 export const ID_TO_NETWORK_NAME = (id) => {
-  switch (id) {
-    case 1:
-      return ChainName.MAINNET;
-    case 5:
-      return ChainName.GOERLI;
-    case 11155111:
-      return ChainName.SEPOLIA;
-    case 56:
-      return ChainName.BNB;
-    case 10:
-      return ChainName.OPTIMISM;
-    case 420:
-      return ChainName.OPTIMISM_GOERLI;
-    case 11155420:
-      return ChainName.OPTIMISM_SEPOLIA;
-    case 42161:
-      return ChainName.ARBITRUM_ONE;
-    case 421613:
-      return ChainName.ARBITRUM_GOERLI;
-    case 421614:
-      return ChainName.ARBITRUM_SEPOLIA;
-    case 137:
-      return ChainName.POLYGON;
-    case 80001:
-      return ChainName.POLYGON_MUMBAI;
-    case 42220:
-      return ChainName.CELO;
-    case 44787:
-      return ChainName.CELO_ALFAJORES;
-    case 100:
-      return ChainName.GNOSIS;
-    case 1284:
-      return ChainName.MOONBEAM;
-    case 43114:
-      return ChainName.AVALANCHE;
-    case 8453:
-      return ChainName.BASE;
-    case 84531:
-      return ChainName.BASE_GOERLI;
-    case 81457:
-      return ChainName.BLAST;
-    case 84532:
-      return ChainName.BASE_SEPOLIA;
-    case 167000:
-      return ChainName.TAIKO;
-    default:
-      throw new Error(`Unknown chain id: ${id}`);
-  }
+    switch (id) {
+        case 1:
+            return ChainName.MAINNET;
+        case 5:
+            return ChainName.GOERLI;
+        case 11155111:
+            return ChainName.SEPOLIA;
+        case 56:
+            return ChainName.BNB;
+        case 10:
+            return ChainName.OPTIMISM;
+        case 420:
+            return ChainName.OPTIMISM_GOERLI;
+        case 11155420:
+            return ChainName.OPTIMISM_SEPOLIA;
+        case 42161:
+            return ChainName.ARBITRUM_ONE;
+        case 421613:
+            return ChainName.ARBITRUM_GOERLI;
+        case 421614:
+            return ChainName.ARBITRUM_SEPOLIA;
+        case 137:
+            return ChainName.POLYGON;
+        case 80001:
+            return ChainName.POLYGON_MUMBAI;
+        case 42220:
+            return ChainName.CELO;
+        case 44787:
+            return ChainName.CELO_ALFAJORES;
+        case 100:
+            return ChainName.GNOSIS;
+        case 1284:
+            return ChainName.MOONBEAM;
+        case 43114:
+            return ChainName.AVALANCHE;
+        case 8453:
+            return ChainName.BASE;
+        case 84531:
+            return ChainName.BASE_GOERLI;
+        case 81457:
+            return ChainName.BLAST;
+        case 84532:
+            return ChainName.BASE_SEPOLIA;
+        case 167000:
+            return ChainName.TAIKO;
+        default:
+            throw new Error(`Unknown chain id: ${id}`);
+    }
 };
 export const CHAIN_IDS_LIST = Object.values(ChainId).map((c) => c.toString());
 export const ID_TO_PROVIDER = (id) => {
-  switch (id) {
-    case ChainId.MAINNET:
-      return process.env.JSON_RPC_PROVIDER;
-    case ChainId.GOERLI:
-      return process.env.JSON_RPC_PROVIDER_GORLI;
-    case ChainId.SEPOLIA:
-      return process.env.JSON_RPC_PROVIDER_SEPOLIA;
-    case ChainId.OPTIMISM:
-      return process.env.JSON_RPC_PROVIDER_OPTIMISM;
-    case ChainId.OPTIMISM_GOERLI:
-      return process.env.JSON_RPC_PROVIDER_OPTIMISM_GOERLI;
-    case ChainId.OPTIMISM_SEPOLIA:
-      return process.env.JSON_RPC_PROVIDER_OPTIMISM_SEPOLIA;
-    case ChainId.ARBITRUM_ONE:
-      return process.env.JSON_RPC_PROVIDER_ARBITRUM_ONE;
-    case ChainId.ARBITRUM_GOERLI:
-      return process.env.JSON_RPC_PROVIDER_ARBITRUM_GOERLI;
-    case ChainId.ARBITRUM_SEPOLIA:
-      return process.env.JSON_RPC_PROVIDER_ARBITRUM_SEPOLIA;
-    case ChainId.POLYGON:
-      return process.env.JSON_RPC_PROVIDER_POLYGON;
-    case ChainId.POLYGON_MUMBAI:
-      return process.env.JSON_RPC_PROVIDER_POLYGON_MUMBAI;
-    case ChainId.CELO:
-      return process.env.JSON_RPC_PROVIDER_CELO;
-    case ChainId.CELO_ALFAJORES:
-      return process.env.JSON_RPC_PROVIDER_CELO_ALFAJORES;
-    case ChainId.BNB:
-      return process.env.JSON_RPC_PROVIDER_BNB;
-    case ChainId.AVALANCHE:
-      return process.env.JSON_RPC_PROVIDER_AVALANCHE;
-    case ChainId.BASE:
-      return process.env.JSON_RPC_PROVIDER_BASE;
-    case ChainId.BLAST:
-      return process.env.JSON_RPC_PROVIDER_BLAST;
-    case ChainId.BASE_SEPOLIA:
-      return process.env.JSON_RPC_PROVIDER_BASE_SEPOLIA;
-    case ChainId.TAIKO:
-      return process.env.JSON_RPC_PROVIDER_TAIKO;
-    default:
-      throw new Error(`Chain id: ${id} not supported`);
-  }
+    switch (id) {
+        case ChainId.MAINNET:
+            return process.env.JSON_RPC_PROVIDER;
+        case ChainId.GOERLI:
+            return process.env.JSON_RPC_PROVIDER_GORLI;
+        case ChainId.SEPOLIA:
+            return process.env.JSON_RPC_PROVIDER_SEPOLIA;
+        case ChainId.OPTIMISM:
+            return process.env.JSON_RPC_PROVIDER_OPTIMISM;
+        case ChainId.OPTIMISM_GOERLI:
+            return process.env.JSON_RPC_PROVIDER_OPTIMISM_GOERLI;
+        case ChainId.OPTIMISM_SEPOLIA:
+            return process.env.JSON_RPC_PROVIDER_OPTIMISM_SEPOLIA;
+        case ChainId.ARBITRUM_ONE:
+            return process.env.JSON_RPC_PROVIDER_ARBITRUM_ONE;
+        case ChainId.ARBITRUM_GOERLI:
+            return process.env.JSON_RPC_PROVIDER_ARBITRUM_GOERLI;
+        case ChainId.ARBITRUM_SEPOLIA:
+            return process.env.JSON_RPC_PROVIDER_ARBITRUM_SEPOLIA;
+        case ChainId.POLYGON:
+            return process.env.JSON_RPC_PROVIDER_POLYGON;
+        case ChainId.POLYGON_MUMBAI:
+            return process.env.JSON_RPC_PROVIDER_POLYGON_MUMBAI;
+        case ChainId.CELO:
+            return process.env.JSON_RPC_PROVIDER_CELO;
+        case ChainId.CELO_ALFAJORES:
+            return process.env.JSON_RPC_PROVIDER_CELO_ALFAJORES;
+        case ChainId.BNB:
+            return process.env.JSON_RPC_PROVIDER_BNB;
+        case ChainId.AVALANCHE:
+            return process.env.JSON_RPC_PROVIDER_AVALANCHE;
+        case ChainId.BASE:
+            return process.env.JSON_RPC_PROVIDER_BASE;
+        case ChainId.BLAST:
+            return process.env.JSON_RPC_PROVIDER_BLAST;
+        case ChainId.BASE_SEPOLIA:
+            return process.env.JSON_RPC_PROVIDER_BASE_SEPOLIA;
+        case ChainId.TAIKO:
+            return process.env.JSON_RPC_PROVIDER_TAIKO;
+        default:
+            throw new Error(`Chain id: ${id} not supported`);
+    }
 };
 export const WRAPPED_NATIVE_CURRENCY = {
-  [ChainId.MAINNET]: new Token(
-    1,
-    '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.GOERLI]: new Token(
-    5,
-    '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.SEPOLIA]: new Token(
-    11155111,
-    '0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.BNB]: new Token(
-    56,
-    '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-    18,
-    'WBNB',
-    'Wrapped BNB'
-  ),
-  [ChainId.OPTIMISM]: new Token(
-    ChainId.OPTIMISM,
-    '0x4200000000000000000000000000000000000006',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.OPTIMISM_GOERLI]: new Token(
-    ChainId.OPTIMISM_GOERLI,
-    '0x4200000000000000000000000000000000000006',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.OPTIMISM_SEPOLIA]: new Token(
-    ChainId.OPTIMISM_SEPOLIA,
-    '0x4200000000000000000000000000000000000006',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.ARBITRUM_ONE]: new Token(
-    ChainId.ARBITRUM_ONE,
-    '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.ARBITRUM_GOERLI]: new Token(
-    ChainId.ARBITRUM_GOERLI,
-    '0xe39Ab88f8A4777030A534146A9Ca3B52bd5D43A3',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.ARBITRUM_SEPOLIA]: new Token(
-    ChainId.ARBITRUM_SEPOLIA,
-    '0xc556bAe1e86B2aE9c22eA5E036b07E55E7596074',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.POLYGON]: new Token(
-    ChainId.POLYGON,
-    '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
-    18,
-    'WMATIC',
-    'Wrapped MATIC'
-  ),
-  [ChainId.POLYGON_MUMBAI]: new Token(
-    ChainId.POLYGON_MUMBAI,
-    '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889',
-    18,
-    'WMATIC',
-    'Wrapped MATIC'
-  ),
-  // The Celo native currency 'CELO' implements the erc-20 token standard
-  [ChainId.CELO]: new Token(
-    ChainId.CELO,
-    '0x471EcE3750Da237f93B8E339c536989b8978a438',
-    18,
-    'CELO',
-    'Celo native asset'
-  ),
-  [ChainId.CELO_ALFAJORES]: new Token(
-    ChainId.CELO_ALFAJORES,
-    '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9',
-    18,
-    'CELO',
-    'Celo native asset'
-  ),
-  [ChainId.GNOSIS]: new Token(
-    ChainId.GNOSIS,
-    '0xe91d153e0b41518a2ce8dd3d7944fa863463a97d',
-    18,
-    'WXDAI',
-    'Wrapped XDAI on Gnosis'
-  ),
-  [ChainId.MOONBEAM]: new Token(
-    ChainId.MOONBEAM,
-    '0xAcc15dC74880C9944775448304B263D191c6077F',
-    18,
-    'WGLMR',
-    'Wrapped GLMR'
-  ),
-  [ChainId.AVALANCHE]: new Token(
-    ChainId.AVALANCHE,
-    '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
-    18,
-    'WAVAX',
-    'Wrapped AVAX'
-  ),
-  [ChainId.BASE]: new Token(
-    ChainId.BASE,
-    '0x4200000000000000000000000000000000000006',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.BASE_GOERLI]: new Token(
-    ChainId.BASE_GOERLI,
-    '0x4200000000000000000000000000000000000006',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.ROOTSTOCK]: new Token(
-    ChainId.ROOTSTOCK,
-    '0x542fDA317318eBF1d3DEAf76E0b632741A7e677d',
-    18,
-    'WRBTC',
-    'Wrapped BTC'
-  ),
-  [ChainId.ZORA]: new Token(
-    ChainId.ZORA,
-    '0x4200000000000000000000000000000000000006',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.ZORA_SEPOLIA]: new Token(
-    ChainId.ZORA_SEPOLIA,
-    '0x4200000000000000000000000000000000000006',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.BLAST]: new Token(
-    ChainId.BLAST,
-    '0x4300000000000000000000000000000000000004',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.BASE_SEPOLIA]: new Token(
-    ChainId.BASE_SEPOLIA,
-    '0x6267947C818ff3900F620FC97d590702afB69147',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
-  [ChainId.TAIKO]: new Token(
-    ChainId.TAIKO,
-    '0xA51894664A773981C6C112C43ce576f315d5b1B6',
-    18,
-    'WETH',
-    'Wrapped Ether'
-  ),
+    [ChainId.MAINNET]: new Token(1, '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.GOERLI]: new Token(5, '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.SEPOLIA]: new Token(11155111, '0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.BNB]: new Token(56, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'WBNB', 'Wrapped BNB'),
+    [ChainId.OPTIMISM]: new Token(ChainId.OPTIMISM, '0x4200000000000000000000000000000000000006', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.OPTIMISM_GOERLI]: new Token(ChainId.OPTIMISM_GOERLI, '0x4200000000000000000000000000000000000006', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.OPTIMISM_SEPOLIA]: new Token(ChainId.OPTIMISM_SEPOLIA, '0x4200000000000000000000000000000000000006', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.ARBITRUM_ONE]: new Token(ChainId.ARBITRUM_ONE, '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.ARBITRUM_GOERLI]: new Token(ChainId.ARBITRUM_GOERLI, '0xe39Ab88f8A4777030A534146A9Ca3B52bd5D43A3', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.ARBITRUM_SEPOLIA]: new Token(ChainId.ARBITRUM_SEPOLIA, '0xc556bAe1e86B2aE9c22eA5E036b07E55E7596074', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.POLYGON]: new Token(ChainId.POLYGON, '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270', 18, 'WMATIC', 'Wrapped MATIC'),
+    [ChainId.POLYGON_MUMBAI]: new Token(ChainId.POLYGON_MUMBAI, '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889', 18, 'WMATIC', 'Wrapped MATIC'),
+    // The Celo native currency 'CELO' implements the erc-20 token standard
+    [ChainId.CELO]: new Token(ChainId.CELO, '0x471EcE3750Da237f93B8E339c536989b8978a438', 18, 'CELO', 'Celo native asset'),
+    [ChainId.CELO_ALFAJORES]: new Token(ChainId.CELO_ALFAJORES, '0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9', 18, 'CELO', 'Celo native asset'),
+    [ChainId.GNOSIS]: new Token(ChainId.GNOSIS, '0xe91d153e0b41518a2ce8dd3d7944fa863463a97d', 18, 'WXDAI', 'Wrapped XDAI on Gnosis'),
+    [ChainId.MOONBEAM]: new Token(ChainId.MOONBEAM, '0xAcc15dC74880C9944775448304B263D191c6077F', 18, 'WGLMR', 'Wrapped GLMR'),
+    [ChainId.AVALANCHE]: new Token(ChainId.AVALANCHE, '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7', 18, 'WAVAX', 'Wrapped AVAX'),
+    [ChainId.BASE]: new Token(ChainId.BASE, '0x4200000000000000000000000000000000000006', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.BASE_GOERLI]: new Token(ChainId.BASE_GOERLI, '0x4200000000000000000000000000000000000006', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.ROOTSTOCK]: new Token(ChainId.ROOTSTOCK, '0x542fDA317318eBF1d3DEAf76E0b632741A7e677d', 18, 'WRBTC', 'Wrapped BTC'),
+    [ChainId.ZORA]: new Token(ChainId.ZORA, '0x4200000000000000000000000000000000000006', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.ZORA_SEPOLIA]: new Token(ChainId.ZORA_SEPOLIA, '0x4200000000000000000000000000000000000006', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.BLAST]: new Token(ChainId.BLAST, '0x4300000000000000000000000000000000000004', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.BASE_SEPOLIA]: new Token(ChainId.BASE_SEPOLIA, '0x6267947C818ff3900F620FC97d590702afB69147', 18, 'WETH', 'Wrapped Ether'),
+    [ChainId.TAIKO]: new Token(ChainId.TAIKO, '0xA51894664A773981C6C112C43ce576f315d5b1B6', 18, 'WETH', 'Wrapped Ether'),
 };
 function isMatic(chainId) {
-  return chainId === ChainId.POLYGON_MUMBAI || chainId === ChainId.POLYGON;
+    return chainId === ChainId.POLYGON_MUMBAI || chainId === ChainId.POLYGON;
 }
 class MaticNativeCurrency extends NativeCurrency {
-  equals(other) {
-    return other.isNative && other.chainId === this.chainId;
-  }
-  get wrapped() {
-    if (!isMatic(this.chainId)) throw new Error('Not matic');
-    const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
-    if (nativeCurrency) {
-      return nativeCurrency;
+    equals(other) {
+        return other.isNative && other.chainId === this.chainId;
     }
-    throw new Error(`Does not support this chain ${this.chainId}`);
-  }
-  constructor(chainId) {
-    if (!isMatic(chainId)) throw new Error('Not matic');
-    super(chainId, 18, 'MATIC', 'Polygon Matic');
-  }
+    get wrapped() {
+        if (!isMatic(this.chainId))
+            throw new Error('Not matic');
+        const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
+        if (nativeCurrency) {
+            return nativeCurrency;
+        }
+        throw new Error(`Does not support this chain ${this.chainId}`);
+    }
+    constructor(chainId) {
+        if (!isMatic(chainId))
+            throw new Error('Not matic');
+        super(chainId, 18, 'MATIC', 'Polygon Matic');
+    }
 }
 function isCelo(chainId) {
-  return chainId === ChainId.CELO_ALFAJORES || chainId === ChainId.CELO;
+    return chainId === ChainId.CELO_ALFAJORES || chainId === ChainId.CELO;
 }
 class CeloNativeCurrency extends NativeCurrency {
-  equals(other) {
-    return other.isNative && other.chainId === this.chainId;
-  }
-  get wrapped() {
-    if (!isCelo(this.chainId)) throw new Error('Not celo');
-    const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
-    if (nativeCurrency) {
-      return nativeCurrency;
+    equals(other) {
+        return other.isNative && other.chainId === this.chainId;
     }
-    throw new Error(`Does not support this chain ${this.chainId}`);
-  }
-  constructor(chainId) {
-    if (!isCelo(chainId)) throw new Error('Not celo');
-    super(chainId, 18, 'CELO', 'Celo');
-  }
+    get wrapped() {
+        if (!isCelo(this.chainId))
+            throw new Error('Not celo');
+        const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
+        if (nativeCurrency) {
+            return nativeCurrency;
+        }
+        throw new Error(`Does not support this chain ${this.chainId}`);
+    }
+    constructor(chainId) {
+        if (!isCelo(chainId))
+            throw new Error('Not celo');
+        super(chainId, 18, 'CELO', 'Celo');
+    }
 }
 function isGnosis(chainId) {
-  return chainId === ChainId.GNOSIS;
+    return chainId === ChainId.GNOSIS;
 }
 class GnosisNativeCurrency extends NativeCurrency {
-  equals(other) {
-    return other.isNative && other.chainId === this.chainId;
-  }
-  get wrapped() {
-    if (!isGnosis(this.chainId)) throw new Error('Not gnosis');
-    const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
-    if (nativeCurrency) {
-      return nativeCurrency;
+    equals(other) {
+        return other.isNative && other.chainId === this.chainId;
     }
-    throw new Error(`Does not support this chain ${this.chainId}`);
-  }
-  constructor(chainId) {
-    if (!isGnosis(chainId)) throw new Error('Not gnosis');
-    super(chainId, 18, 'XDAI', 'xDai');
-  }
+    get wrapped() {
+        if (!isGnosis(this.chainId))
+            throw new Error('Not gnosis');
+        const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
+        if (nativeCurrency) {
+            return nativeCurrency;
+        }
+        throw new Error(`Does not support this chain ${this.chainId}`);
+    }
+    constructor(chainId) {
+        if (!isGnosis(chainId))
+            throw new Error('Not gnosis');
+        super(chainId, 18, 'XDAI', 'xDai');
+    }
 }
 function isBnb(chainId) {
-  return chainId === ChainId.BNB;
+    return chainId === ChainId.BNB;
 }
 class BnbNativeCurrency extends NativeCurrency {
-  equals(other) {
-    return other.isNative && other.chainId === this.chainId;
-  }
-  get wrapped() {
-    if (!isBnb(this.chainId)) throw new Error('Not bnb');
-    const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
-    if (nativeCurrency) {
-      return nativeCurrency;
+    equals(other) {
+        return other.isNative && other.chainId === this.chainId;
     }
-    throw new Error(`Does not support this chain ${this.chainId}`);
-  }
-  constructor(chainId) {
-    if (!isBnb(chainId)) throw new Error('Not bnb');
-    super(chainId, 18, 'BNB', 'BNB');
-  }
+    get wrapped() {
+        if (!isBnb(this.chainId))
+            throw new Error('Not bnb');
+        const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
+        if (nativeCurrency) {
+            return nativeCurrency;
+        }
+        throw new Error(`Does not support this chain ${this.chainId}`);
+    }
+    constructor(chainId) {
+        if (!isBnb(chainId))
+            throw new Error('Not bnb');
+        super(chainId, 18, 'BNB', 'BNB');
+    }
 }
 function isMoonbeam(chainId) {
-  return chainId === ChainId.MOONBEAM;
+    return chainId === ChainId.MOONBEAM;
 }
 class MoonbeamNativeCurrency extends NativeCurrency {
-  equals(other) {
-    return other.isNative && other.chainId === this.chainId;
-  }
-  get wrapped() {
-    if (!isMoonbeam(this.chainId)) throw new Error('Not moonbeam');
-    const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
-    if (nativeCurrency) {
-      return nativeCurrency;
+    equals(other) {
+        return other.isNative && other.chainId === this.chainId;
     }
-    throw new Error(`Does not support this chain ${this.chainId}`);
-  }
-  constructor(chainId) {
-    if (!isMoonbeam(chainId)) throw new Error('Not moonbeam');
-    super(chainId, 18, 'GLMR', 'Glimmer');
-  }
+    get wrapped() {
+        if (!isMoonbeam(this.chainId))
+            throw new Error('Not moonbeam');
+        const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
+        if (nativeCurrency) {
+            return nativeCurrency;
+        }
+        throw new Error(`Does not support this chain ${this.chainId}`);
+    }
+    constructor(chainId) {
+        if (!isMoonbeam(chainId))
+            throw new Error('Not moonbeam');
+        super(chainId, 18, 'GLMR', 'Glimmer');
+    }
 }
 function isAvax(chainId) {
-  return chainId === ChainId.AVALANCHE;
+    return chainId === ChainId.AVALANCHE;
 }
 class AvalancheNativeCurrency extends NativeCurrency {
-  equals(other) {
-    return other.isNative && other.chainId === this.chainId;
-  }
-  get wrapped() {
-    if (!isAvax(this.chainId)) throw new Error('Not avalanche');
-    const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
-    if (nativeCurrency) {
-      return nativeCurrency;
+    equals(other) {
+        return other.isNative && other.chainId === this.chainId;
     }
-    throw new Error(`Does not support this chain ${this.chainId}`);
-  }
-  constructor(chainId) {
-    if (!isAvax(chainId)) throw new Error('Not avalanche');
-    super(chainId, 18, 'AVAX', 'Avalanche');
-  }
+    get wrapped() {
+        if (!isAvax(this.chainId))
+            throw new Error('Not avalanche');
+        const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
+        if (nativeCurrency) {
+            return nativeCurrency;
+        }
+        throw new Error(`Does not support this chain ${this.chainId}`);
+    }
+    constructor(chainId) {
+        if (!isAvax(chainId))
+            throw new Error('Not avalanche');
+        super(chainId, 18, 'AVAX', 'Avalanche');
+    }
 }
 export class ExtendedEther extends Ether {
-  get wrapped() {
-    if (this.chainId in WRAPPED_NATIVE_CURRENCY) {
-      return WRAPPED_NATIVE_CURRENCY[this.chainId];
+    get wrapped() {
+        if (this.chainId in WRAPPED_NATIVE_CURRENCY) {
+            return WRAPPED_NATIVE_CURRENCY[this.chainId];
+        }
+        throw new Error('Unsupported chain ID');
     }
-    throw new Error('Unsupported chain ID');
-  }
-  static onChain(chainId) {
-    var _a;
-    return (_a = this._cachedExtendedEther[chainId]) !== null && _a !== void 0
-      ? _a
-      : (this._cachedExtendedEther[chainId] = new ExtendedEther(chainId));
-  }
+    static onChain(chainId) {
+        var _a;
+        return ((_a = this._cachedExtendedEther[chainId]) !== null && _a !== void 0 ? _a : (this._cachedExtendedEther[chainId] = new ExtendedEther(chainId)));
+    }
 }
 ExtendedEther._cachedExtendedEther = {};
 const cachedNativeCurrency = {};
 export function nativeOnChain(chainId) {
-  if (cachedNativeCurrency[chainId] != undefined) {
+    if (cachedNativeCurrency[chainId] != undefined) {
+        return cachedNativeCurrency[chainId];
+    }
+    if (isMatic(chainId)) {
+        cachedNativeCurrency[chainId] = new MaticNativeCurrency(chainId);
+    }
+    else if (isCelo(chainId)) {
+        cachedNativeCurrency[chainId] = new CeloNativeCurrency(chainId);
+    }
+    else if (isGnosis(chainId)) {
+        cachedNativeCurrency[chainId] = new GnosisNativeCurrency(chainId);
+    }
+    else if (isMoonbeam(chainId)) {
+        cachedNativeCurrency[chainId] = new MoonbeamNativeCurrency(chainId);
+    }
+    else if (isBnb(chainId)) {
+        cachedNativeCurrency[chainId] = new BnbNativeCurrency(chainId);
+    }
+    else if (isAvax(chainId)) {
+        cachedNativeCurrency[chainId] = new AvalancheNativeCurrency(chainId);
+    }
+    else {
+        cachedNativeCurrency[chainId] = ExtendedEther.onChain(chainId);
+    }
     return cachedNativeCurrency[chainId];
-  }
-  if (isMatic(chainId)) {
-    cachedNativeCurrency[chainId] = new MaticNativeCurrency(chainId);
-  } else if (isCelo(chainId)) {
-    cachedNativeCurrency[chainId] = new CeloNativeCurrency(chainId);
-  } else if (isGnosis(chainId)) {
-    cachedNativeCurrency[chainId] = new GnosisNativeCurrency(chainId);
-  } else if (isMoonbeam(chainId)) {
-    cachedNativeCurrency[chainId] = new MoonbeamNativeCurrency(chainId);
-  } else if (isBnb(chainId)) {
-    cachedNativeCurrency[chainId] = new BnbNativeCurrency(chainId);
-  } else if (isAvax(chainId)) {
-    cachedNativeCurrency[chainId] = new AvalancheNativeCurrency(chainId);
-  } else {
-    cachedNativeCurrency[chainId] = ExtendedEther.onChain(chainId);
-  }
-  return cachedNativeCurrency[chainId];
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2hhaW5zLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL3V0aWwvY2hhaW5zLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFDTCxPQUFPLEVBRVAsS0FBSyxFQUNMLGNBQWMsRUFDZCxLQUFLLEdBQ04sTUFBTSxtQkFBbUIsQ0FBQztBQUUzQix3QkFBd0I7QUFDeEIsTUFBTSxDQUFDLE1BQU0sZ0JBQWdCLEdBQWM7SUFDekMsT0FBTyxDQUFDLE9BQU87SUFDZixPQUFPLENBQUMsUUFBUTtJQUNoQixPQUFPLENBQUMsZUFBZTtJQUN2QixPQUFPLENBQUMsZ0JBQWdCO0lBQ3hCLE9BQU8sQ0FBQyxZQUFZO0lBQ3BCLE9BQU8sQ0FBQyxlQUFlO0lBQ3ZCLE9BQU8sQ0FBQyxnQkFBZ0I7SUFDeEIsT0FBTyxDQUFDLE9BQU87SUFDZixPQUFPLENBQUMsY0FBYztJQUN0QixPQUFPLENBQUMsT0FBTztJQUNmLE9BQU8sQ0FBQyxjQUFjO0lBQ3RCLE9BQU8sQ0FBQyxJQUFJO0lBQ1osT0FBTyxDQUFDLEdBQUc7SUFDWCxPQUFPLENBQUMsU0FBUztJQUNqQixPQUFPLENBQUMsSUFBSTtJQUNaLE9BQU8sQ0FBQyxLQUFLO0lBQ2IsNERBQTREO0lBQzVELE9BQU8sQ0FBQyxZQUFZO0NBQ3JCLENBQUM7QUFFRixNQUFNLENBQUMsTUFBTSxZQUFZLEdBQUc7SUFDMUIsT0FBTyxDQUFDLE9BQU87SUFDZixPQUFPLENBQUMsT0FBTztJQUNmLE9BQU8sQ0FBQyxZQUFZO0lBQ3BCLE9BQU8sQ0FBQyxRQUFRO0lBQ2hCLE9BQU8sQ0FBQyxPQUFPO0lBQ2YsT0FBTyxDQUFDLElBQUk7SUFDWixPQUFPLENBQUMsR0FBRztJQUNYLE9BQU8sQ0FBQyxTQUFTO0lBQ2pCLEVBQUU7SUFDRixPQUFPLENBQUMsWUFBWTtDQUNyQixDQUFDO0FBRUYsTUFBTSxDQUFDLE1BQU0sVUFBVSxHQUFHO0lBQ3hCLE9BQU8sQ0FBQyxRQUFRO0lBQ2hC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
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2hhaW5zLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL3V0aWwvY2hhaW5zLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFDTCxPQUFPLEVBRVAsS0FBSyxFQUNMLGNBQWMsRUFDZCxLQUFLLEdBQ04sTUFBTSxtQkFBbUIsQ0FBQztBQUUzQix3QkFBd0I7QUFDeEIsTUFBTSxDQUFDLE1BQU0sZ0JBQWdCLEdBQWM7SUFDekMsT0FBTyxDQUFDLE9BQU87SUFDZixPQUFPLENBQUMsUUFBUTtJQUNoQixPQUFPLENBQUMsZUFBZTtJQUN2QixPQUFPLENBQUMsZ0JBQWdCO0lBQ3hCLE9BQU8sQ0FBQyxZQUFZO0lBQ3BCLE9BQU8sQ0FBQyxlQUFlO0lBQ3ZCLE9BQU8sQ0FBQyxnQkFBZ0I7SUFDeEIsT0FBTyxDQUFDLE9BQU87SUFDZixPQUFPLENBQUMsY0FBYztJQUN0QixPQUFPLENBQUMsT0FBTztJQUNmLE9BQU8sQ0FBQyxjQUFjO0lBQ3RCLE9BQU8sQ0FBQyxJQUFJO0lBQ1osT0FBTyxDQUFDLEdBQUc7SUFDWCxPQUFPLENBQUMsU0FBUztJQUNqQixPQUFPLENBQUMsSUFBSTtJQUNaLE9BQU8sQ0FBQyxLQUFLO0lBQ2IsNERBQTREO0lBQzVELE9BQU8sQ0FBQyxZQUFZO0lBQ3BCLE9BQU8sQ0FBQyxLQUFLO0NBQ2QsQ0FBQztBQUVGLE1BQU0sQ0FBQyxNQUFNLFlBQVksR0FBRztJQUMxQixPQUFPLENBQUMsT0FBTztJQUNmLE9BQU8sQ0FBQyxPQUFPO0lBQ2YsT0FBTyxDQUFDLFlBQVk7SUFDcEIsT0FBTyxDQUFDLFFBQVE7SUFDaEIsT0FBTyxDQUFDLE9BQU87SUFDZixPQUFPLENBQUMsSUFBSTtJQUNaLE9BQU8sQ0FBQyxHQUFHO0lBQ1gsT0FBTyxDQUFDLFNBQVM7SUFDakIsRUFBRTtJQUNGLE9BQU8sQ0FBQyxZQUFZO0lBQ3BCLE9BQU8sQ0FBQyxLQUFLO0NBQ2QsQ0FBQztBQUVGLE1BQU0sQ0FBQyxN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

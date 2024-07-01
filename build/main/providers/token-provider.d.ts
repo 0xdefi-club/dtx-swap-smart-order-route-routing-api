@@ -96,6 +96,8 @@ export declare const USDC_NATIVE_BASE: Token;
 export declare const USDC_BASE_GOERLI: Token;
 export declare const USDC_ETHEREUM_GNOSIS: Token;
 export declare const USDC_BASE_SEPOLIA: Token;
+export declare const USDC_TAIKO: Token;
+export declare const TAIKO_TAIKO: Token;
 export declare const WXDAI_GNOSIS: Token;
 export declare const WBTC_GNOSIS: Token;
 export declare const USDC_MOONBEAM: Token;
