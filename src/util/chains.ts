@@ -55,7 +55,7 @@ export const HAS_L1_FEE = [
   ChainId.BLAST,
   //
   ChainId.BASE_SEPOLIA,
-  ChainId.TAIKO,
+  // ChainId.TAIKO,
 ];
 
 export const NETWORKS_WITH_SAME_UNISWAP_ADDRESSES = [

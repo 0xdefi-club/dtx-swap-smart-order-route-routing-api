@@ -14,7 +14,7 @@ export declare const ARB_GASINFO_ADDRESS = "0x0000000000000000000000000000000000
 export declare const TICK_LENS_ADDRESS: string | undefined;
 export declare const NONFUNGIBLE_POSITION_MANAGER_ADDRESS: string | undefined;
 export declare const V3_MIGRATOR_ADDRESS: string | undefined;
-export declare const MULTICALL2_ADDRESS = "0xF82D64357D9120a760e1E4C75f646C0618eFc2F3";
+export declare const MULTICALL2_ADDRESS = "0xcA11bde05977b3631167028862bE2a173976CA11";
 export declare type AddressMap = {
     [chainId: number]: string | undefined;
 };
